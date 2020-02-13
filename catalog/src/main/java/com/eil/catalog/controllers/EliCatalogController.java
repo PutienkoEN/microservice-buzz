@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class EliCatalogController {
 
-    @GetMapping("/")
+    @GetMapping("/catalog/greeting")
     public String home() {
         return "Hello world";
     }

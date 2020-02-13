@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: proxy-gateway
+
+server:
+  port: 2020
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: false
+  instance:
+    preferIpAddress: true
+
+zuul:
+  routes:
+    catalog-service:
+      path: /catalog/**
+      serviceId: catalog-service
+      stripPrefix: false
