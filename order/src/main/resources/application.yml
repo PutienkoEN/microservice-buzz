@@ -1,6 +1,6 @@
 spring:
   application:
-    name: order
+    name: order-service
 
 server:
   port: 8091
@@ -8,4 +8,4 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8081/eureka/
+      defaultZone: http://localhost:8761/eureka/
