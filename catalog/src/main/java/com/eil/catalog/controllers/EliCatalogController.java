@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import static java.util.Objects.isNull;
+
 @RestController
 public class EliCatalogController {
 
@@ -16,7 +18,12 @@ public class EliCatalogController {
 
     @GetMapping("/catalog/{orderId}")
     public String home(@PathVariable String orderId) {
-        return eliOrderRepository.existsById(orderId);
+        final String orderData = eliOrderRepository.existsById(orderId);
+        if (isNull(orderData)) {
+            return "Order not found!";
+        }
+
+        return orderData;
     }
 
     @GetMapping("/catalog/greeting")
